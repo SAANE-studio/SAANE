@@ -1,0 +1,3 @@
+<div class="sr-table-wrap" role="region" aria-label="Data table {{ add .Ordinal 1 }}; scroll horizontally if needed" tabindex="0">
+<table><thead>{{ range .THead }}<tr>{{ range . }}<th scope="col" class="sr-align-{{ .Alignment }}">{{ .Text }}</th>{{ end }}</tr>{{ end }}</thead>
+<tbody>{{ range .TBody }}<tr>{{ range . }}<td class="sr-align-{{ .Alignment }}">{{ .Text }}</td>{{ end }}</tr>{{ end }}</tbody></table></div>

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "house-for-slow-weather",
+    "number": "01",
+    "titleLines": ["House for", "Slow Weather"],
+    "cover": "images/project-01.svg",
+    "coverAlt": "Project preview for House for Slow Weather",
+    "href": "project-01.html"
+  },
+  {
+    "id": "public-room-archive",
+    "number": "02",
+    "titleLines": ["Public Room", "Archive"],
+    "cover": "images/project-02.svg",
+    "coverAlt": "Project preview for Public Room Archive",
+    "href": "project-02.html"
+  },
+  {
+    "id": "memory-threshold",
+    "number": "03",
+    "titleLines": ["Memory", "Threshold"],
+    "cover": "images/project-03.svg",
+    "coverAlt": "Project preview for Memory Threshold Shelter",
+    "href": "project-03.html"
+  },
+  {
+    "id": "commons-on-the-edge",
+    "number": "04",
+    "titleLines": ["Commons on", "the Edge"],
+    "cover": "images/project-04.svg",
+    "coverAlt": "Project preview for Commons on the Edge",
+    "href": "project-04.html"
+  },
+  {
+    "id": "additional-works",
+    "number": "05",
+    "titleLines": ["Additional", "Works"],
+    "cover": "images/project-05.svg",
+    "coverAlt": "Project preview for Additional Works",
+    "href": "project-05.html"
+  },
+  {
+    "id": "residue-studies",
+    "number": "06",
+    "titleLines": ["Residue", "Studies"],
+    "cover": "images/project-06.svg",
+    "coverAlt": "Project preview for Residue Studies",
+    "href": "project-06.html"
+  }
+]

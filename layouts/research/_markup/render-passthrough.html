@@ -1,0 +1,3 @@
+{{ .Page.Store.Set "researchMath" true }}
+{{ $math := transform.ToMath .Inner (dict "output" "htmlAndMathml" "displayMode" (eq .Type "block")) }}
+{{ if eq .Type "block" }}<div class="sr-math-block" tabindex="0" aria-label="Mathematical formula">{{ $math }}</div>{{ else }}{{ $math }}{{ end }}

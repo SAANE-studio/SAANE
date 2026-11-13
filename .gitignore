@@ -1,0 +1,23 @@
+# Generated Hugo output and local preview state
+/public/
+/public-preview/
+/resources/_gen/
+/.hugo_build.lock
+/.saane-preview/
+/hugo_stats.json
+
+# Local Obsidian configuration (contains machine-specific paths)
+/scripts/obsidian-publication.json
+/docs/fixtures/manifest.json
+
+# Python/cache/editor files
+__pycache__/
+*.py[cod]
+*.saane-tmp
+*.log
+.env
+.env.*
+!.env.example
+.vscode/
+.DS_Store
+Thumbs.db

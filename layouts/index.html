@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  {{ partial "head.html" . }}
+  <body>
+    <main class="landing" aria-labelledby="site-title">
+      <div class="hero-image" aria-hidden="true">
+        <div class="sky"></div>
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+        <div class="building"></div>
+        <div class="city"></div>
+        <div class="shore"></div>
+        <div class="water"></div>
+      </div>
+
+      <section class="landing-content">
+        <h1 class="landing-logo" id="site-title" aria-label="SAANE">
+          <img class="saane-logo" src="{{ "saane-logo.svg" | relURL }}" alt="SAANE" />
+        </h1>
+      </section>
+    </main>
+
+    {{ partial "nav.html" . }}
+  </body>
+</html>

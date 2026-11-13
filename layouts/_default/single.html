@@ -1,0 +1,125 @@
+{{ define "main" }}
+<body class="inner-page profile-page">
+  <div class="saane-shell">
+    
+    <!-- Left Rail: Logo & Local Nav -->
+    <aside class="saane-left-rail" aria-label="SAANE identity">
+      <a class="saane-rail-logo" href="{{ .Site.BaseURL }}">
+        <img src="{{ "images/saane-logo.svg" | relURL }}" alt="{{ .Site.Title }}" />
+      </a>
+
+      <!-- Navigation Index -->
+      {{ with .Site.Data.profile.nav }}
+      <nav class="profile-local-nav" aria-label="Profile sections">
+        {{ range . }}
+        <a href="#{{ .id }}" class="profile-nav-link">
+          <span>{{ .label }}</span>
+        </a>
+        {{ end }}
+      </nav>
+      {{ end }}
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="saane-main profile-content">
+      <div class="profile-editorial-field">
+        <div class="profile-editorial-stage">
+          
+          <!-- 00. SECTION: Opening / Intro -->
+          <section id="opening" class="profile-section profile-opening">
+            <div class="profile-intro-spread">
+              <div class="profile-intro-left">
+                <div class="profile-intro-copy">
+                  <p>{{ .Site.Data.profile.intro.bio | markdownify }}</p>
+                </div>
+              </div>
+              {{ with .Site.Data.profile.intro.portrait }}
+              <figure class="profile-portrait">
+                <img src="{{ . | relURL }}" alt="Profile Portrait" />
+              </figure>
+              {{ end }}
+            </div>
+          </section>
+
+          <!-- 01. SECTION: Experience -->
+          {{ with .Site.Data.profile.experiences }}
+          <section id="experience" class="profile-section profile-experience">
+            <p class="profile-label">01 / Experience</p>
+            <h2 class="profile-title">Work & Projects</h2>
+            
+            <div class="profile-entry-list">
+              {{ range . }}
+              <article class="profile-entry experience-entry">
+                <div class="profile-entry-period experience-period">
+                  {{ .period }}
+                </div>
+                <div class="experience-content">
+                  <span class="experience-role">{{ .role }}</span>
+                  <p class="experience-organization experience-organization-primary">{{ .organization }}</p>
+                  {{ with .description }}
+                  <p class="experience-description">{{ . }}</p>
+                  {{ end }}
+                  
+                  {{ with .highlights }}
+                  <ul class="experience-item-list experience-group-list">
+                    {{ range . }}
+                    <li class="experience-group-item">{{ . }}</li>
+                    {{ end }}
+                  </ul>
+                  {{ end }}
+                </div>
+              </article>
+              {{ end }}
+            </div>
+          </section>
+          {{ end }}
+
+          <!-- 02. SECTION: Education -->
+          {{ with .Site.Data.profile.educations }}
+          <section id="education" class="profile-section profile-education">
+            <p class="profile-label">02 / Education</p>
+            <h2 class="profile-title">Academic Background</h2>
+
+            <div class="profile-entry-list">
+              {{ range . }}
+              <article class="profile-entry">
+                <div class="profile-entry-period">
+                  {{ .period }}
+                </div>
+                <div>
+                  <h3 class="education-degree-title">{{ .degree }}</h3>
+                  <p class="education-degree-meta">{{ .institution }}</p>
+                  {{ with .detail }}
+                  <p class="education-detail-description">{{ . }}</p>
+                  {{ end }}
+                </div>
+              </article>
+              {{ end }}
+            </div>
+          </section>
+          {{ end }}
+
+          <!-- 03. SECTION: Expertise / Skills -->
+          {{ with .Site.Data.profile.skills }}
+          <section id="skills" class="profile-section profile-tools">
+            <p class="profile-label">03 / Expertise</p>
+            <h2 class="profile-title">Skills & Capabilities</h2>
+
+            <div class="profile-tools-grid">
+              {{ range . }}
+              <div>
+                <h3>{{ .category }}</h3>
+                <p>{{ .items }}</p>
+              </div>
+              {{ end }}
+            </div>
+          </section>
+          {{ end }}
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+</body>
+{{ end }}

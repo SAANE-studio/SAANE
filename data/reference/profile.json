@@ -1,0 +1,385 @@
+{
+  "sections": [
+    {
+      "id": "profile",
+      "number": "01",
+      "label": "Profile"
+    },
+    {
+      "id": "experience",
+      "number": "02",
+      "label": "Experience"
+    },
+    {
+      "id": "education",
+      "number": "03",
+      "label": "Education"
+    },
+    {
+      "id": "expertise",
+      "number": "04",
+      "label": "Competence"
+    },
+    {
+      "id": "tools",
+      "number": "05",
+      "label": "Tools"
+    }
+  ],
+  "intro": {
+    "image": "images/profile-portrait.jpg",
+    "fallbackImage": "images/profile-portrait-placeholder.svg",
+    "imageAlt": "Black-and-white editorial portrait",
+    "paragraphs": [
+      "I am an architecture graduate working in architecture field with particular interest in project delivery process. My current professional interests is about information management and design delivery, particularly ISO 19650, information management, multidisciplinary coordination, workflows, and BIM processes. I also explore building performance simulation, including thermal, solar, microclimate analysis, and daylight analysis to support my work.",
+      "Beyond buildings, my interest extend to placemaking and built environment development strategy, encompassing planning, community engagement, feasibility studies, and development potential assessment."
+    ]
+  },
+  "experience": [
+    {
+      "period": "2026 - Present",
+      "role": "Architectural Technologist",
+      "organization": "PENTA Architecture",
+      "description": "Working on digital processes, information structures, coordination methods, and tools that support architectural project delivery.",
+      "sections": [
+        {
+          "title": "Process & Information Management",
+          "items": [
+            "ISO 19650",
+            "Information Management",
+            "Information Delivery Process",
+            "LOD & LOI",
+            "BIM Standards & Guidelines",
+            "Design Delivery Process"
+          ]
+        },
+        {
+          "title": "Digital Coordination",
+          "items": [
+            "Multidisciplinary Coordination",
+            "Clash Detection",
+            "Model Coordination",
+            "ACC Design Collaboration",
+            "4D Design Sequencing",
+            "BIM 5D Workflow"
+          ]
+        },
+        {
+          "title": "Tools & Workflow Development",
+          "items": [
+            "Navis Search Generator",
+            "Navisworks Automation",
+            "Search Set Development",
+            "Coordination Workflow Development",
+            "BIM Process Automation"
+          ]
+        }
+      ]
+    },
+    {
+      "period": "March - July 2026",
+      "role": "BIM Engineer",
+      "organization": "PENTA Architecture | Rumah Dinas Bank Indonesia Slipi, Jakarta",
+      "items": [
+        "Architecture BIM Modelling",
+        "MEP BIM Modelling",
+        "Clash Detection",
+        "Autodesk Forma CDE Management",
+        "4D Scheduling"
+      ],
+      "Tools": [
+        "Autodesk Forma CDE Management, Autodesk Forma Design Coordination, Autodesk Naviswork Manage, Microsoft Projects"
+      ],
+      "Skills": [
+        "Clash Detection, 4D Scheduling, Revit Modelling, Multidisciplinary Coordination"
+      ]
+    },
+    {
+      "period": "March 2023 - March 2026",
+      "role": "Architect in Charge",
+      "organization": "PENTA Architecture",
+      "description": "Worked on technical proposals and preliminary architectural design for public-sector projects, including office buildings, hospitals, airports, public facilities, and mixed-use developments.",
+      "items": [
+        "Developed and adapted preliminary designs in response to technical, site, and functional requirements.",
+        "Coordinated architectural design with Structure, MEP, Geotechnical, Infrastructure, Landscape, and Interior disciplines.",
+        "Collaborated with drafting teams to develop architectural working drawings and proposal documentation.",
+        "Produced architectural drawings, diagrams, and visual materials using Revit, AutoCAD, SketchUp, Photoshop, and PowerPoint.",
+        "Worked within Revit-based collaborative environments through Autodesk Construction Cloud (ACC).",
+        "Used Rhino and Grasshopper for selected form-development and façade studies."
+      ],
+      "highlights": [
+        {
+          "label": "Selected Project Highlight",
+          "title": "Airfield Planning",
+          "organization": "Soewondo Air Field, Deli Serdang - 2023",
+          "description": "Contributed as an architectural assistant to Soewondo Airfield planning, covering terminal and hangar facilities, airside planning including runway, taxiway, apron, and aircraft movement, as well as operational and supporting facilities."
+        },
+        {
+          "title": "Airport Planning",
+          "organization": "Ngurah Rai International Airport Beautification · 2025",
+          "description": "Contributed to preliminary airport planning, including basic passenger-flow strategies and early Level of Service considerations."
+        },
+        {
+          "title": "Healthcare Facility Planning",
+          "organization": "RS Jantung & Pembuluh Darah Harapan Kita · 2023, RS Tarempa · 2024, RS Adhyaksa Jambi · 2024, RS Adhyaksa Ceger - 2026",
+          "description": "Contributed to preliminary design and layout development for healthcare facilities, with exposure to hospital circulation, functional relationships, and healthcare-specific spatial requirements."
+        },
+        {
+          "title": "Topography-Responsive Site Planning",
+          "organization": "Basilika & Gereja IKN Proposal · 2024, RTH Orchid IKN · 2025, Gedung DPR 2 IKN - 2025",
+          "description": "Reviewed and adjusted building and road placement in response to existing topography, exploring strategies to reduce cut-and-fill and respond more closely to site conditions."
+        },
+        {
+          "title": "Indoor Sports Facility Proposal",
+          "organization": "GOR Cendrawasih · 2025",
+          "description": "Developed preliminary design for an indoor sports facility for Paralympic athletes, including programming, spatial layout, accessibility considerations, and early design concept development."
+        }
+      ]
+    },
+    {
+      "period": "May 2021 - July 2021",
+      "role": "Architecture Internship",
+      "organization": "Podo Joyo Masyhur Group",
+      "description": "In-house architectural intern at a real estate development firm, assisting with house renovations, supervising construction activities, and evaluating completed work.",
+      "Skills": [
+        "Architectural and landscape design, communication, problem-solving, interdisciplinary collaboration, and real estate management."
+      ]
+    },
+    {
+      "period": "2022",
+      "role": "Architectural Workshop Mentor",
+      "organization": "Sekola Boto - Ikatan Arsitek Indonesia Jawa Timur",
+      "description": "Guided a workshop as a co-mentor exploring innovative modular brick shape and its applications. Acquired hands-on experience in brick production, construction techniques, and brick arrangements.",
+      "Skills": [
+        "Team leadership, public speaking, creativity, problem solving"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "type": "degree",
+      "degree": "Bachelor of Architecture",
+      "institution": "Bandung Institute of Technology",
+      "location": "Bandung, Indonesia",
+      "highlights": [
+        {
+          "title": "Placemaking",
+          "organization": "Bandung Institute of Technology × University of Melbourne",
+          "year": "2022",
+          "description": "Designed a mixed-use building and public space for low-income residents in Kampung Pesanggrahan, Jakarta. Conducted site and stakeholder analysis through observation, interviews, community engagement, and social experiments to identify social and environmental issues. Developed a participatory facility program intended to enable residents to build, manage, and further develop the space collectively.",
+          "skills": [
+            "Placemaking",
+            "Participatory Design",
+            "Community Engagement",
+            "Site Analysis"
+          ]
+        },
+        {
+          "title": "Algorithmic Design & Bamboo in Architecture",
+          "organization": "Bandung Institute of Technology × AA School of Architecture",
+          "year": "2022",
+          "description": "Developed an environmentally adaptable housing proposal for communities in Haiti by analyzing site conditions and evaluating existing housing through environmental simulations. Explored bamboo construction and algorithmic modelling to develop façade and roof systems aimed at improving climate responsiveness and living conditions.",
+          "skills": [
+            "Rhino",
+            "Grasshopper",
+            "Algorithmic Design",
+            "Environmental Analysis",
+            "Bamboo Design"
+          ]
+        },
+        {
+          "title": "Collaborative Interdisciplinary Discipline Project (CIDP)",
+          "organization": "Bandung Institute of Technology",
+          "year": "2022",
+          "description": "Worked with civil, mechanical, and electrical engineering students to analyze an existing building, its site, and user behavior. Modelled and redesigned the building in Revit using linked multidisciplinary models, explored natural lighting and ventilation strategies, developed custom Revit families, and produced the final design proposal.",
+          "skills": [
+            "Revit",
+            "Interdisciplinary Collaboration",
+            "BIM Collaboration",
+            "Environmental Design",
+            "Teamwork"
+          ]
+        }
+      ],
+      "workshops": [
+        {
+          "title": "Computational Design Thinking: From Code to Form",
+          "organization": "Ikatan Arsitek Indonesia × Universitas Pembangunan Jaya",
+          "year": "2025",
+          "description": "Explore computational design thinking through Rhino and Grasshopper, including parametric modelling, basic scripting logic, and generative workflow.",
+          "skills": [
+            "Rhino",
+            "Grasshopper"
+          ]
+        },
+        {
+          "title": "Craft to Code to Craft",
+          "organization": "Ikatan Arsitek Indonesia × Universitas Parahyangan",
+          "year": "2025",
+          "description": "Explore a digital fabrication workflow from physical craft to digital object and back to fabrication, using hand-crafting, 3D scanning, computational processing, and 3D printing.",
+          "skills": [
+            "3d-scanning, rhinoceros, grasshopper, 3d-printing"
+          ]
+        },
+        {
+          "title": "Neuro-Architecture",
+          "organization": "Ikatan Arsitek Indonesia × Universitas Parahyangan",
+          "year": "2026",
+          "description": "Explores how neuroscience can contribute into reliable human preference identification, experience, and responses towards spaces.",
+          "skills": [
+            "Neuro-architecture"
+          ]
+        },
+        {
+          "title": "Dashboard Management BIM for Project Control with AI Integration",
+          "organization": "BIM Proplan",
+          "year": "2026",
+          "description": "Explore the integration of Autodesk Naviswork, Microsoft Project, and Power BI for BIM-based project control and monitoring, including the use of project data to develop management dashboards with AI-assisted workflow.",
+          "skills": [
+            "Power BI, Autodesk Naviswork, Microsoft Project"
+          ]
+        }
+      ],
+      "organizations": [
+        {
+          "title": "ITB Student Orchestra",
+          "organization": "Music Director - Piano Division",
+          "description": "Designed and executed the division's one-year work plan, covering recruitment, mentorship pairing, technical syllabus, and performance output. Served as external representative for inter-university orchestra relations. Previously acted as divisional mentor for junior pianists."
+        },
+        {
+          "title": "IMA-G (Architecture Student Body)",
+          "organization": "External Representative & Fundraising Staff",
+          "description": "Represented the student body in cross-university forums with other architectural organizations. Supported internal fundraising initiatives to sustain student development programs and organizational operations."
+        },
+        {
+          "title": "MWAWM ITB",
+          "organization": "Aspiration Staff",
+          "description": "Collected, synthesized, and documented student aspirations and grievances. Delivered structured feedback to university administration for policy and welfare improvements."
+        },
+        {
+          "title": "OSKM ITB (Freshman Orientation Program)",
+          "organization": "Mentor",
+          "description": "Guided freshmen cohorts through campus life navigation, covering academic systems, social integration, and available student resources. Facilitated group discussions and one-on-one check-ins during the orientation period."
+        },
+        {
+          "title": "ASHRAE ITB Student Branch",
+          "organization": "Content Writer",
+          "description": "Researched and wrote technical articles on building systems, HVAC, and energy efficiency for student branch publications. Translated engineering concepts into accessible content for student readership."
+        }
+      ]
+    },
+    {
+      "type": "professional-development",
+      "title": "Professional Development",
+      "providerLabel": "Organization",
+      "provider": "Architectural Association (IAI)",
+      "providerAdditional": "I2MI (Inovasi dan Informasi Model Indonesia) - BIM",
+      "workshops": [
+        {
+          "title": "Computational Design Thinking: From Code to Form",
+          "organization": "Ikatan Arsitek Indonesia x Universitas Pembangunan Jaya",
+          "year": "2025",
+          "description": "Explore computational design thinking through Rhino and Grasshopper, including parametric modelling, basic scripting logic, and generative workflow.",
+          "skills": [
+            "Rhino",
+            "Grasshopper"
+          ]
+        },
+        {
+          "title": "Craft to Code to Craft",
+          "organization": "Ikatan Arsitek Indonesia x Universitas Parahyangan",
+          "year": "2025",
+          "description": "Explore a digital fabrication workflow from physical craft to digital object and back to fabrication, using hand-crafting, 3D scanning, computational processing, and 3D printing.",
+          "skills": [
+            "3d-scanning, rhinoceros, grasshopper, 3d-printing"
+          ]
+        },
+        {
+          "title": "Neuro-Architecture",
+          "organization": "Ikatan Arsitek Indonesia x Universitas Parahyangan",
+          "year": "2026",
+          "description": "Explores how neuroscience can contribute into reliable human preference identification, experience, and responses towards spaces.",
+          "skills": [
+            "Neuro-architecture"
+          ]
+        },
+        {
+          "title": "Dashboard Management BIM for Project Control with AI Integration",
+          "organization": "BIM Proplan",
+          "year": "2026",
+          "description": "Explore the integration of Autodesk Naviswork, Microsoft Project, and Power BI for BIM-based project control and monitoring, including the use of project data to develop management dashboards with AI-assisted workflow.",
+          "skills": [
+            "Power BI, Autodesk Naviswork, Microsoft Project"
+          ]
+        }
+      ]
+    }
+  ],
+  "expertise": [
+    {
+      "id": "architectural-design",
+      "number": "01",
+      "title": "Architectural Design",
+      "description": "Spatial organization, architectural development, visual composition, and design communication."
+    },
+    {
+      "id": "bim-coordination",
+      "number": "02",
+      "title": "BIM Coordination",
+      "description": "Multidisciplinary model coordination, model review, clash-related workflows, and coordinated digital delivery."
+    },
+    {
+      "id": "information-management",
+      "number": "03",
+      "title": "Information Management",
+      "description": "Structured information workflows, BIM documentation, common data environments, and information delivery processes."
+    },
+    {
+      "id": "design-technology",
+      "number": "04",
+      "title": "Design Technology",
+      "description": "Exploring digital tools and workflows that connect architectural thinking with more efficient ways of designing, analysing, coordinating, and communicating projects."
+    },
+    {
+      "id": "urban-spatial-research",
+      "number": "05",
+      "title": "Urban & Spatial Research",
+      "description": "Interest in urban form, place, morphology, housing, development, and the relationship between spatial structure and everyday life."
+    }
+  ],
+  "tools": [
+    {
+      "category": "Modelling + BIM",
+      "items": [
+        "Autodesk Revit",
+        "Autodesk Naviswork Manage",
+        "Autodesk Construction Cloud (Forma)"
+      ]
+    },
+    {
+      "category": "Design + Computation",
+      "items": [
+        "Rhino",
+        "Grasshopper",
+        "Autodesk Forma",
+        "Sketchup",
+        "Autodesk AutoCAD"
+      ]
+    },
+    {
+      "category": "Analysis + Information",
+      "items": [
+        "Power BI",
+        "Microsoft Project"
+      ]
+    },
+    {
+      "category": "Visual + Communication",
+      "items": [
+        "Adobe Creative Suite",
+        "Figma"
+      ]
+    }
+  ]
+}
+

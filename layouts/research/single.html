@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }} - SAANE</title><link rel="icon" href="data:,">
+{{ if .Params.local_styleguide }}<meta name="robots" content="noindex, nofollow">{{ end }}
+<link rel="stylesheet" href="{{ "styles.css" | relURL }}">
+<link rel="stylesheet" href="{{ "research/fonts.css" | relURL }}">
+<link rel="stylesheet" href="{{ "research/research.css" | relURL }}?v={{ md5 (readFile "static/research/research.css") }}">
+{{ $content := .Content }}
+{{ if .Store.Get "researchMath" }}<link rel="stylesheet" href="{{ "research/vendor/katex/katex.min.css" | relURL }}">{{ end }}
+{{ if .Store.Get "researchMermaid" }}<script type="module" src="{{ "research/mermaid.js" | relURL }}"></script>{{ end }}
+</head>
+<body class="inner-page research-landing-page sr-page">
+<a class="sr-skip" href="#research-content">Skip to article</a>
+<div class="saane-shell sr-layout">
+<aside class="saane-left-rail sr-rail" aria-label="SAANE identity">
+<a class="saane-rail-logo sr-logo" href="{{ "" | relURL }}"><img src="{{ "saane-logo.svg" | relURL }}" alt="SAANE"></a>
+<div class="sr-toc" aria-label="Article contents">{{ .TableOfContents }}</div>
+</aside>
+<main id="research-content" tabindex="-1" class="saane-main sr-main">
+<article class="sr-article">
+<header class="sr-header">
+<p class="sr-label">{{ .Params.article_type | default "Research" }}</p>
+<h1>{{ .Title }}</h1>
+{{ with .Params.summary }}<p class="sr-summary">{{ . }}</p>{{ end }}
+<time class="sr-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+</header>
+<div class="sr-content">{{ $content }}</div>
+</article>
+</main>
+</div>
+{{ partial "nav.html" . }}
+
+</body>
+</html>
+
+
+
+
+

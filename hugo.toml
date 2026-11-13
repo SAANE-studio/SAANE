@@ -1,0 +1,15 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'My New Hugo Project'
+
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['$$', '$$'], ['\[', '\]']]
+inline = [['$', '$'], ['\(', '\)']]
+
+[markup.tableOfContents]
+startLevel = 1
+endLevel = 6
+ordered = false

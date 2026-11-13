@@ -1,0 +1,1 @@
+Pinned local runtime assets: Mermaid 11.12.0 (MIT), KaTeX 0.16.22 (MIT). Fonts: Jost and Poppins from Google Fonts (SIL OFL). No CDN is required at page load. Regenerate deliberately when updating dependencies.

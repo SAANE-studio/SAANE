@@ -1,0 +1,5 @@
+<nav class="global-nav" aria-label="SAANE Studio">
+  <a href="{{ "profile.html" | relURL }}">Profile</a>
+  <a href="{{ "portofolio.html" | relURL }}">Portofolio</a>
+  <a href="{{ "research/" | relURL }}"{{ if eq .Section "research" }} class="active"{{ end }}>Learnings</a>
+</nav>

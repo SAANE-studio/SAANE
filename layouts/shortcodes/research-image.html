@@ -1,0 +1,8 @@
+{{ $size := .Get "size" | default "large" }}
+<figure class="sr-figure sr-size-{{ $size }}">
+<a href="{{ .Get "src" | relURL }}" aria-label="Open full-size image: {{ .Get "alt" }}"><img src="{{ .Get "src" | relURL }}" alt="{{ .Get "alt" | default "" }}" loading="lazy" decoding="async"></a>
+{{ if or (.Get "caption") (.Get "source") (.Get "number") }}
+<figcaption>{{ with .Get "number" }}<span>Figure {{ . }}. </span>{{ end }}{{ with .Get "caption" }}{{ $.Page.RenderString . }}{{ end }}
+{{ with .Get "source" }}<span class="sr-figure-source">Source: {{ if $.Get "source_url" }}<a href="{{ $.Get "source_url" }}">{{ . }}</a>{{ else }}{{ . }}{{ end }}</span>{{ end }}</figcaption>
+{{ end }}
+</figure>

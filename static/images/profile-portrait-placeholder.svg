@@ -1,0 +1,17 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Temporary monochrome portrait placeholder</title>
+  <desc id="desc">A quiet abstract black-and-white portrait field placeholder for the SAANE Profile page.</desc>
+  <rect width="900" height="1200" fill="#f4f4f2"/>
+  <path d="M0 0H900V1200H0Z" fill="url(#grain)" opacity="0.2"/>
+  <ellipse cx="472" cy="330" rx="122" ry="142" fill="#d4d4d0"/>
+  <path d="M250 1110C272 760 354 545 476 545C602 545 685 766 714 1110H250Z" fill="#c6c6c2"/>
+  <path d="M346 274C398 174 542 174 599 270C573 214 517 187 456 194C392 202 356 238 346 274Z" fill="#242424" opacity="0.78"/>
+  <path d="M315 465C384 532 542 538 616 455" fill="none" stroke="#9a9a94" stroke-width="3"/>
+  <path d="M235 1110H730" stroke="#e7e7e3" stroke-width="2"/>
+  <defs>
+    <pattern id="grain" width="18" height="18" patternUnits="userSpaceOnUse">
+      <rect width="18" height="18" fill="#ffffff"/>
+      <path d="M0 9H18M9 0V18" stroke="#d8d8d3" stroke-width="0.7"/>
+    </pattern>
+  </defs>
+</svg>

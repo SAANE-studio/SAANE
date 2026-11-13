@@ -1,0 +1,12 @@
+{{ if eq .Type "alert" }}
+{{ $kind := .AlertType | lower }}{{ $title := .AlertTitle }}
+{{ if .AlertSign }}
+<details class="sr-callout sr-callout--{{ $kind }}" {{ if eq .AlertSign "+" }}open{{ end }}>
+<summary><span class="sr-callout-label">{{ $kind }}</span>{{ with $title }}<span class="sr-callout-title">{{ . }}</span>{{ end }}</summary>
+<div class="sr-callout-body">{{ .Text }}</div></details>
+{{ else }}
+<aside class="sr-callout sr-callout--{{ $kind }}" aria-label="{{ $kind }}">
+<span class="sr-callout-label">{{ $kind }}</span>{{ with $title }}<div class="sr-callout-title">{{ . }}</div>{{ end }}
+<div class="sr-callout-body">{{ .Text }}</div></aside>
+{{ end }}
+{{ else }}<blockquote>{{ .Text }}</blockquote>{{ end }}

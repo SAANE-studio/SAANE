@@ -1,0 +1,15 @@
+{{ with .entries }}
+<div class="education-detail-group">
+  <p class="education-detail-label">{{ $.label }}</p>
+  {{ range . }}
+  <article class="education-detail-item">
+    <h4 class="education-detail-title">{{ .title }}</h4>
+    <p class="education-detail-meta">{{ with .organization }}{{ . }}{{ end }}{{ if and .organization .year }} - {{ end }}{{ with .year }}{{ . }}{{ end }}</p>
+    <p class="education-detail-description">{{ .description }}</p>
+    {{ with .skills }}
+    <p class="education-detail-skills">{{ delimit . " / " }}</p>
+    {{ end }}
+  </article>
+  {{ end }}
+</div>
+{{ end }}

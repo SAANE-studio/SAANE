@@ -1,0 +1,9 @@
+<nav class="research-local-nav research-filter" aria-label="Research categories">
+<p class="research-eyebrow">{{ hugo.Data.reference.research.eyebrow }}</p>
+{{ $page := . }}
+{{ range $index, $category := hugo.Data.reference.research.categories }}
+{{ $active := eq $index 0 }}
+{{ if $page.IsPage }}{{ $active = eq $category $page.Params.category }}{{ end }}
+<button type="button" class="{{ if $active }}is-active{{ end }}" data-research-filter="{{ $category | urlize }}"{{ if $page.IsPage }} data-research-url="{{ "research/" | relURL }}?category={{ $category | urlize }}"{{ end }} aria-pressed="{{ if $active }}true{{ else }}false{{ end }}"><span aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>{{ $category }}</button>
+{{ end }}
+</nav>

@@ -1,0 +1,220 @@
+{{ $profile := hugo.Data.reference.profile }}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile - SAANE</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ "styles.css" | relURL }}" />
+  </head>
+  <body class="inner-page profile-page">
+    <div class="saane-shell">
+      <aside class="saane-left-rail" aria-label="SAANE identity">
+        <a class="saane-rail-logo" href="{{ "" | relURL }}">
+          <img src="{{ "saane-logo.svg" | relURL }}" alt="SAANE" />
+        </a>
+        <nav class="profile-local-nav" aria-label="Profile sections">
+          {{ range $index, $section := $profile.sections }}
+          <a href="#{{ $section.id }}"{{ if eq $index 0 }} class="is-active"{{ end }}><span>{{ $section.number }}</span> {{ $section.label }}</a>
+          {{ end }}
+        </nav>
+      </aside>
+
+      <main class="saane-main profile-content">
+        <div class="profile-editorial-field">
+          <div class="profile-editorial-stage">
+            {{ with $profile.intro }}
+            <section id="{{ (index $profile.sections 0).id }}" class="profile-section profile-opening">
+              <div class="profile-intro-spread">
+                <div class="profile-intro-left">
+                  <div class="profile-intro-copy">
+                    {{ range .paragraphs }}
+                    <p>{{ . }}</p>
+                    {{ end }}
+                  </div>
+                </div>
+                <figure class="profile-portrait">
+                  <img
+                    src="{{ .image | relURL }}"
+                    data-fallback="{{ .fallbackImage | relURL }}"
+                    alt="{{ .imageAlt }}"
+                  />
+                </figure>
+              </div>
+            </section>
+            {{ end }}
+
+            {{ $experienceSection := index $profile.sections 1 }}
+            <section id="{{ $experienceSection.id }}" class="profile-section profile-experience">
+              <h2 class="profile-label">{{ $experienceSection.label }}</h2>
+              <div class="profile-entry-list">
+                {{ range $profile.experience }}
+                <article class="profile-entry experience-entry">
+                  <p class="profile-entry-period experience-period">{{ .period }}</p>
+                  <div class="experience-content">
+                    <h3 class="experience-role">{{ .role }}</h3>
+                    {{ $organizationParts := split .organization "|" }}
+                    <p class="profile-entry-context experience-organization">
+                      <span class="experience-organization-primary">{{ trim (index $organizationParts 0) " " }}</span>
+                      {{ if gt (len $organizationParts) 1 }}
+                      |
+                      <span class="experience-organization-detail">{{ delimit (after 1 $organizationParts) " | " }}</span>
+                      {{ end }}
+                    </p>
+                    {{ with .project }}
+                    <p class="profile-entry-project experience-project">{{ . }}</p>
+                    {{ end }}
+                    {{ with .description }}
+                    <p class="experience-description">{{ . }}</p>
+                    {{ end }}
+                    {{ with .items }}
+                    <ul class="experience-item-list experience-group-list">
+                      {{ range . }}
+                      <li class="experience-group-item">{{ . }}</li>
+                      {{ end }}
+                    </ul>
+                    {{ end }}
+                    {{ with .sections }}
+                    <div class="profile-entry-sections experience-groups">
+                      {{ range . }}
+                      <section class="profile-entry-section experience-group">
+                        <h4 class="experience-group-title">{{ .title }}</h4>
+                        <ul class="experience-group-list">
+                          {{ range .items }}
+                          <li class="experience-group-item">{{ . }}</li>
+                          {{ end }}
+                        </ul>
+                      </section>
+                      {{ end }}
+                    </div>
+                    {{ end }}
+                    {{ with .Tools }}
+                    <p class="experience-note">Tools: {{ delimit . ", " }}</p>
+                    {{ else }}
+                    {{ with .tools }}
+                    <p class="experience-note">Tools: {{ delimit . ", " }}</p>
+                    {{ end }}
+                    {{ end }}
+                    {{ with .Skills }}
+                    <p class="experience-note">Skills: {{ delimit . ", " }}</p>
+                    {{ else }}
+                    {{ with .skills }}
+                    <p class="experience-note">Skills: {{ delimit . ", " }}</p>
+                    {{ end }}
+                    {{ end }}
+                    {{ with .highlights }}
+                    <div class="experience-highlights">
+                      {{ range . }}
+                      <article class="experience-highlight">
+                        {{ with .label }}
+                        <p class="experience-highlight-label">{{ . }}</p>
+                        {{ end }}
+                        {{ with .title }}
+                        <h4 class="experience-highlight-title">{{ . }}</h4>
+                        {{ end }}
+                        {{ with .organization }}
+                        <p class="experience-highlight-organization">{{ . }}</p>
+                        {{ end }}
+                        {{ with .description }}
+                        <p class="experience-highlight-description">{{ . }}</p>
+                        {{ end }}
+                      </article>
+                      {{ end }}
+                    </div>
+                    {{ end }}
+                  </div>
+                </article>
+                {{ end }}
+              </div>
+            </section>
+
+            {{ $educationSection := index $profile.sections 2 }}
+            <section id="{{ $educationSection.id }}" class="profile-section profile-education">
+              <h2 class="profile-label">{{ $educationSection.label }}</h2>
+              <div class="profile-entry-list">
+                {{ range $profile.education }}
+                {{ $articleClass := "profile-entry profile-entry-simple" }}
+                {{ if eq .type "continuing" }}
+                {{ $articleClass = printf "%s is-secondary" $articleClass }}
+                {{ end }}
+                <article class="{{ $articleClass }}">
+                  <div>
+                    {{ if eq .type "degree" }}
+                    <h3 class="education-degree-title">{{ .institution }}</h3>
+                    <p class="education-degree-meta">{{ .degree }} - GPA {{ default "3.83" .gpa }}</p>
+                    {{ partial "profile/education-groups.html" (dict "label" "Workshop" "entries" .highlights) }}
+                    {{ partial "profile/education-groups.html" (dict "label" "Organization" "entries" .organizations) }}
+                    {{ else if eq .type "professional-development" }}
+                    <h3 class="education-degree-title">{{ .title }}</h3>
+                    {{ with .providerLabel }}
+                    <p class="education-detail-label education-organization-label">{{ . }}</p>
+                    {{ end }}
+                    <h4 class="education-detail-title education-provider">{{ .provider }}</h4>
+                    {{ with .providerAdditional }}
+                    <h4 class="education-detail-title education-provider">{{ . }}</h4>
+                    {{ end }}
+                    {{ partial "profile/education-groups.html" (dict "label" "Workshops" "entries" .workshops) }}
+                    {{ else }}
+                    <h3>{{ .title }}</h3>
+                    {{ range .topics }}
+                    <p>{{ . }}</p>
+                    {{ end }}
+                    {{ end }}
+                  </div>
+                </article>
+                {{ end }}
+              </div>
+            </section>
+
+            {{ $expertiseSection := index $profile.sections 3 }}
+            <section id="{{ $expertiseSection.id }}" class="profile-section profile-expertise">
+              <h2 class="profile-label">{{ $expertiseSection.label }}</h2>
+              <div class="profile-index-list">
+                {{ range $profile.expertise }}
+                <article class="profile-index-entry">
+                  <p>{{ .number }}</p>
+                  <div>
+                    <h3>{{ .title }}</h3>
+                    <p>{{ .description }}</p>
+                  </div>
+                </article>
+                {{ end }}
+              </div>
+            </section>
+
+            {{ $toolsSection := index $profile.sections 4 }}
+            <section id="{{ $toolsSection.id }}" class="profile-section profile-tools">
+              <h2 class="profile-label">{{ $toolsSection.label }}</h2>
+              <div class="profile-tools-grid">
+                {{ range $profile.tools }}
+                <article>
+                  <h3>{{ .category }}</h3>
+                  {{ range .items }}
+                  <p>{{ . }}</p>
+                  {{ end }}
+                </article>
+                {{ end }}
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <nav class="global-nav" aria-label="SAANE Studio">
+      <a href="{{ "profile.html" | relURL }}" class="active">Profile</a>
+      <a href="{{ "portofolio.html" | relURL }}">Portofolio</a>
+      <a href="{{ "research/" | relURL }}">Learnings</a>
+    </nav>
+    <script src="{{ "profile-layout.js" | relURL }}" defer></script>
+  </body>
+</html>
+
+

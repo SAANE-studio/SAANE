@@ -1,0 +1,6 @@
+<div class="sr-gallery" role="group" aria-label="{{ .Get "title" | default "ON and OFF comparison" }}">
+{{ range slice "on" "off" }}
+{{ $key := . }}
+<figure class="sr-figure"><p class="sr-label">{{ upper . }}</p><a href="{{ $.Get (printf "%s_src" .) | relURL }}"><img src="{{ $.Get (printf "%s_src" .) | relURL }}" alt="{{ $.Get (printf "%s_alt" .) }}" loading="lazy"></a><figcaption>{{ $.Get (printf "%s_caption" $key) }}</figcaption></figure>
+{{ end }}
+</div>

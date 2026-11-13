@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 400">
+  <rect width="540" height="400" fill="#e9e5dd"/>
+  <g opacity=".62">
+    <rect x="72" y="70" width="112" height="260" fill="#cfc8bd"/>
+    <rect x="204" y="104" width="112" height="226" fill="#bcb3a8"/>
+    <rect x="336" y="52" width="112" height="278" fill="#d8d1c8"/>
+  </g>
+  <g stroke="#20201d" stroke-width="2" opacity=".35">
+    <path d="M72 138 H448"/>
+    <path d="M72 212 H448"/>
+    <path d="M72 286 H448"/>
+  </g>
+</svg>

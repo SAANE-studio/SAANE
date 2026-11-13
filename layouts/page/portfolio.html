@@ -1,0 +1,60 @@
+{{ $projects := hugo.Data.reference.portfolio }}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portofolio - SAANE</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ "styles.css" | relURL }}" />
+  </head>
+  <body class="inner-page portfolio-page">
+    <div class="saane-shell">
+      <aside class="saane-left-rail" aria-label="SAANE identity">
+        <a class="saane-rail-logo" href="{{ "" | relURL }}">
+          <img src="{{ "saane-logo.svg" | relURL }}" alt="SAANE" />
+        </a>
+      </aside>
+
+      <main class="saane-main portfolio-index">
+        <section
+          class="toc-section"
+          aria-label="Portofolio projects. Scroll horizontally to view all projects."
+          tabindex="0"
+        >
+          <div class="toc-stage">
+            <nav class="toc-grid">
+              {{ range $projects }}
+              <a href="{{ .href | relURL }}" class="toc-item" id="{{ .id }}">
+                <div class="toc-image">
+                  <img src="{{ .cover | relURL }}" alt="{{ .coverAlt }}" />
+                </div>
+                <div class="toc-meta">
+                  <h2 class="toc-number">{{ .number }}</h2>
+                  <div class="toc-line"></div>
+                  <p class="toc-title">{{ range $index, $line := .titleLines }}{{ if $index }}<br />{{ end }}{{ $line }}{{ end }}</p>
+                </div>
+              </a>
+              {{ end }}
+            </nav>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <nav class="global-nav" aria-label="SAANE Studio">
+      <a href="{{ "profile.html" | relURL }}">Profile</a>
+      <a href="{{ "portofolio.html" | relURL }}" class="active">Portofolio</a>
+      <a href="{{ "research/" | relURL }}">Learnings</a>
+    </nav>
+    <script src="{{ "portfolio-layout.js" | relURL }}" defer></script>
+  </body>
+</html>
+
+
