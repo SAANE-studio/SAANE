@@ -10,6 +10,7 @@
 {{ $content := .Content }}
 {{ if .Store.Get "researchMath" }}<link rel="stylesheet" href="{{ "research/vendor/katex/katex.min.css" | relURL }}">{{ end }}
 {{ if .Store.Get "researchMermaid" }}<script type="module" src="{{ "research/mermaid.js" | relURL }}"></script>{{ end }}
+<meta name="robots" content="noindex, nofollow">
 </head>
 <body class="inner-page research-landing-page sr-page">
 <a class="sr-skip" href="#research-content">Skip to article</a>
