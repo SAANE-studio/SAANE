@@ -1,3 +1,4 @@
+
 {{ $pages := .Pages.ByDate.Reverse }}
 {{ $research := hugo.Data.reference.research }}
 <!doctype html>
@@ -37,7 +38,10 @@
                 data-research-category="{{ .Params.category | urlize }}"
               >
                 <div class="research-card-image">
-                  <img src="{{ .Params.cover | relURL }}" alt="{{ .Title }}" />
+                  <img
+                    src="{{ .Params.cover | strings.TrimPrefix "/" | relURL }}"
+                    alt="{{ .Title }}"
+                  />
                 </div>
                 <div class="research-card-meta">
                   <span>{{ .Date.Format "2006" }}</span>
@@ -48,7 +52,6 @@
                   {{ with .Params.summary }}
                   <p>{{ . }}</p>
                   {{ end }}
-                  
                 </div>
               </a>
               {{ end }}
@@ -63,7 +66,3 @@
     <script src="{{ "research-layout.js" | relURL }}" defer></script>
   </body>
 </html>
-
-
-
-
