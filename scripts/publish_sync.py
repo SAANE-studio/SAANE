@@ -77,7 +77,7 @@ def sync(root=ROOT, manifest_path=MANIFEST):
         if key not in discovered and path.is_file():
             meta,_=metadata(path.read_text(encoding='utf-8-sig'))
             if 'publish' not in meta and key not in previous:discovered[key]=info
-    manifest={'vault':str(vault),'notes':discovered,'assets':assets}
+    manifest={'vault':str(vault),'notes':discovered,'assets':assets,'html_resource_files':config.get('html_resource_files',[])}
     pending={}; managed={}
     for key,info in discovered.items():
         importer=Importer(manifest,root); importer.run(key,False)

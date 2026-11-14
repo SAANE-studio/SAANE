@@ -34,7 +34,28 @@ When these natural strategies are not sufficient, **mechanical** cooling systems
 While indoor temperature helps understand the thermal condition of a space, it doesn't fully explain **how people experience those conditions**. A room maintained at 26°C may still feel too warm if surrounding surfaces are hot, humidity is high, or air movement is insufficient. Therefore, thermal comfort can be evaluated using **Predicted Mean Vote (PMV)**. PMV considers six factors, which are air temperature, mean radiant temperature, air speed, humidity, clothing insulation, and metabolic activity. By combining these factors, PMV predicts how a group of people is likely to feel in a particular indoor environment. PMV uses a seven-point thermal sensation scale, ranging from -3 (Cold) to +3 (Hot), with 0 representing a neutral thermal sensation. 
 
 
-## Simulation Workflow
+## Simulation Using Autodesk Forma
+
+In the building compound level, thermal comfort analysis can be done using Autodesk forma with its Microclimate Analysis feature. 
+
+{{< research-image src="/images/research/thermal-comfort/utci-forma-bc85798a72.jpg" alt="utci-forma" size="large" >}}
+
+Microclimate analysis evaluates outdoor thermal comfort by calculates **perceived temperature** (how it feels to people), using _sun exposure, wind speed, sky exposure, air temperature, humidity, and cloud cover._ The output is based on the **Universal Thermal Climate Index (UTCI).** The output of this simulation is **Perceived Temperature (UTCI)**. UTCI converts complex outdoor conditions into a single temperature value (°C). UTCI Benchmark :
+- 9-26°C : no thermal stress
+- 26-32°C : moderate heat stress
+- 32-38°C : strong heat stress
+- 38-46°C : very strong heat stress
+- above 46°C : extreme heat stress
+
+This information can drive our design response to the site, such as: 
+- **High UTCI / too hot** → add shade, increase tree cover, reduce exposed hardscape, and improve airflow.
+- **Low UTCI / too cold** → increase solar access, reduce overexposure to wind, and create more sheltered outdoor areas.
+- **Hot pedestrian routes** → add continuous shading, especially along main walking paths and waiting areas, and reconsider orientation or edge conditions.
+- **Overheated plazas / courtyards** → introduce trees, softer landscape, water-sensitive cooling elements, or more balanced enclosure so the space is not fully exposed.
+- **Too much hardscape** → replace part of it with planting and permeable/green surfaces to reduce heat buildup and improve pedestrian-level conditions.
+
+
+## Simulation Using Ladybug and Honeybee
 
 {{< research-image src="/images/research/thermal-comfort/thermal-simulation-workflow-infographic-24b385f788.png" alt="Thermal Simulation Workflow Infographic" size="medium" >}}
 
@@ -61,7 +82,13 @@ Indoor Air Temperature refers to the temperature of the air inside a room. Howev
 
 **Operative Temperature combines Air Temperature and Mean Radiant Temperature** to provide a more representative understanding of the thermal conditions experienced by occupants. Therefore, even when the indoor air is cooled, the room may still feel warmer due to heat radiating from surrounding surfaces.
 
-{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation-2-d1feefd7b9.png" alt="Thermal_Comfort_Simulation 2" size="large" >}}
+{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation-3-1b130a3b34.png" alt="Thermal_Comfort_Simulation 3" size="large" >}}
+{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation---copy-2-0fa612fb59.png" alt="Thermal_Comfort_Simulation - Copy (2)" size="large" >}}
+{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation---copy-3-a544ea6c71.png" alt="Thermal_Comfort_Simulation - Copy (3)" size="large" >}}
+{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation---copy-4-51c5a28bad.png" alt="Thermal_Comfort_Simulation - Copy (4)" size="large" >}}
+
+
+
 
 The simulations compare an **Unconditioned Room (left)**, without mechanical cooling, and a **Conditioned Room (right)**, equipped with a mechanical cooling system with a maximum cooling capacity of 30 kW.
 
@@ -77,7 +104,8 @@ While these simulations demonstrate the effectiveness of mechanical cooling in r
 
 Following the indoor temperature analysis, the simulation is further evaluated to understand **how the resulting thermal conditions are likely to be perceived by occupants**. Two analyses are used: Predicted Mean Vote (PMV) and the Psychrometric Chart. 
 #### Predicted Mean Vote (PMV)
-{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation---copy-1-424bd455a1.png" alt="Thermal_Comfort_Simulation - Copy 1" size="large" >}}
+{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation---copy-2-73a36e7632.png" alt="Thermal_Comfort_Simulation - Copy 2" size="large" >}}
+{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation---copy---copy-2-47b7716a2e.png" alt="Thermal_Comfort_Simulation - Copy - Copy (2)" size="large" >}}
 
 **Predicted Mean Vote (PMV)** is a method used to estimate how warm or cold people are likely to feel in a particular indoor environment. Unlike temperature measurements alone, PMV considers air temperature, radiant temperature, humidity, air movement, clothing, and activity level. It uses a scale ranging from −3 (Cold) to +3 (Hot), with 0 representing a neutral thermal sensation.
 
@@ -90,7 +118,8 @@ In contrast, the conditioned room shows a noticeable reduction in thermal sensat
 However, the conditioned room does not consistently achieve a neutral thermal sensation. Although the cooling system maintains a lower indoor temperature, occupants may still experience some degree of warmth due to other environmental and personal factors.
 
 #### Psychrometric Chart
-{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation---copy---copy-9655e77868.png" alt="Thermal_Comfort_Simulation - Copy - Copy" size="large" >}}
+
+{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation---copy---copy-1-676e19df2b.png" alt="Thermal_Comfort_Simulation - Copy - Copy 1" size="medium" >}}{{< research-image src="/images/research/thermal-comfort/thermal_comfort_simulation---copy---copy---copy-e2922aa17e.png" alt="Thermal_Comfort_Simulation - Copy - Copy - Copy" size="medium" >}}
 
 The **Psychrometric Chart** provides additional information about the relationship between indoor air temperature and moisture content. It shows how frequently different combinations of temperature and humidity occur throughout the simulation period.
 

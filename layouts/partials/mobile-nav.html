@@ -1,0 +1,13 @@
+<header class="mobile-header" hidden>
+  {{ if not .IsHome }}<a class="mobile-brand" href="{{ "" | relURL }}" aria-label="SAANE home"><img src="{{ "saane-logo.svg" | relURL }}" alt="SAANE"></a>{{ end }}
+  <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+</header>
+<dialog id="mobile-menu" class="mobile-menu" aria-label="Main navigation" hidden>
+  <button class="mobile-menu-close" type="button" autofocus aria-label="Close navigation">Close ×</button>
+  <nav aria-label="Mobile navigation">
+    <a href="{{ "profile.html" | relURL }}">Profile</a>
+    <a href="{{ "portofolio.html" | relURL }}">Portfolio</a>
+    <a href="{{ "research/" | relURL }}">Learnings</a>
+  </nav>
+</dialog>
+<script src="{{ "mobile.js" | relURL }}" defer></script>

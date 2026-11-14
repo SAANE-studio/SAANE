@@ -77,6 +77,29 @@ class ImportTests(unittest.TestCase):
   self.note('b.md','~~~md\n## Real\nFake\n~~~\n\n## Real\nActual\n',False)
   obj,_=self.run_note();body=obj.pending[Path('content/research/a.md')].decode()
   self.assertIn('Actual',body);self.assertNotIn('Fake',body)
+
+ def test_html_report_embed(self):
+  self.note('a.md','![[report.htm]]')
+  (self.vault/'report.htm').write_text('<html><head></head><body>Report</body></html>')
+  self.m['assets']=['report.htm']
+  obj,_=self.run_note()
+  self.assertIn('type="html"',obj.pending[Path('content/research/a.md')].decode())
+  output=next(data for name,data in obj.pending.items() if name.suffix=='.htm').decode()
+  self.assertIn('sandbox allow-scripts',output)
+ def test_html_dependency_requires_approval(self):
+  self.note('a.md','![[report.htm]]')
+  (self.vault/'report.htm').write_text('<head><script src="private.js"></script></head>')
+  self.m['assets']=['report.htm']
+  with self.assertRaisesRegex(ImportFailure,'not approved'):self.run_note()
+ def test_html_approved_dependency_is_inlined(self):
+  self.note('a.md','![[report.htm]]')
+  library=self.vault/'library.js';library.write_text('var fixture = 1;')
+  (self.vault/'report.htm').write_text('<head><script src="'+library.as_posix()+'"></script></head>')
+  self.m['assets']=['report.htm'];self.m['html_resource_files']=[str(library)]
+  obj,_=self.run_note()
+  output=next(data for name,data in obj.pending.items() if name.suffix=='.htm').decode()
+  self.assertIn('var fixture = 1;',output);self.assertNotIn(library.as_posix(),output)
 if __name__=='__main__':unittest.main()
+
 
 

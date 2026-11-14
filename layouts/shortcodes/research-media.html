@@ -2,16 +2,18 @@
 <figure class="sr-figure sr-media sr-size-{{ .Get "size" | default "large" }}">
 {{ with .Get "title" }}<div class="sr-media-title">{{ . }}</div>{{ end }}
 {{ if eq $type "video" }}
-<video aria-label="{{ .Get "title" | default "Research video" }}" controls preload="metadata" {{ with .Get "poster" }}poster="{{ . | relURL }}"{{ end }}><source src="{{ $src | relURL }}">{{ with .Get "captions" }}<track kind="captions" src="{{ . | relURL }}" srclang="{{ $.Get "lang" | default "en" }}" label="Captions" default>{{ end }}<a href="{{ $src | relURL }}">Open video</a></video>
+<video aria-label="{{ .Get "title" | default "Research video" }}" controls preload="metadata" {{ with .Get "poster" }}poster="{{ . | relURL }}"{{ end }}><source src="{{ $src | strings.TrimPrefix "/" | relURL }}">{{ with .Get "captions" }}<track kind="captions" src="{{ . | relURL }}" srclang="{{ $.Get "lang" | default "en" }}" label="Captions" default>{{ end }}<a href="{{ $src | strings.TrimPrefix "/" | relURL }}">Open video</a></video>
 {{ else if eq $type "audio" }}
-<audio aria-label="{{ .Get "title" | default "Research audio" }}" controls preload="metadata" src="{{ $src | relURL }}"><a href="{{ $src | relURL }}">Open audio</a></audio>
+<audio aria-label="{{ .Get "title" | default "Research audio" }}" controls preload="metadata" src="{{ $src | strings.TrimPrefix "/" | relURL }}"><a href="{{ $src | strings.TrimPrefix "/" | relURL }}">Open audio</a></audio>
 {{ else if eq $type "pdf" }}
-<object aria-label="{{ .Get "title" | default "Research PDF" }}" class="sr-pdf" data="{{ $src | relURL }}" type="application/pdf"><p>PDF preview unavailable. <a href="{{ $src | relURL }}">Open PDF</a>.</p></object>
+<object aria-label="{{ .Get "title" | default "Research PDF" }}" class="sr-pdf" data="{{ $src | strings.TrimPrefix "/" | relURL }}" type="application/pdf"><p>PDF preview unavailable. <a href="{{ $src | strings.TrimPrefix "/" | relURL }}">Open PDF</a>.</p></object>
+{{ else if eq $type "html" }}
+<iframe class="sr-html-report" src="{{ $src | strings.TrimPrefix "/" | relURL }}" title="{{ .Get "title" | default "HTML report" }}" loading="lazy" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe>
 {{ else if eq $type "youtube" }}
 <iframe src="https://www.youtube-nocookie.com/embed/{{ .Get "id" }}" title="{{ .Get "title" | default "YouTube video" }}" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 {{ else if eq $type "embed" }}
 {{ if not (hasPrefix $src "https://") }}{{ errorf "research-media embed requires an HTTPS URL: %s" .Position }}{{ end }}
 <iframe src="{{ $src }}" title="{{ .Get "title" | default "Embedded media" }}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 {{ else }}{{ errorf "Unknown research-media type %q at %s" $type .Position }}{{ end }}
-<figcaption>{{ with .Get "caption" }}{{ $.Page.RenderString . }} · {{ end }}{{ if eq $type "youtube" }}<a href="https://www.youtube.com/watch?v={{ .Get "id" }}">Open video</a>{{ else }}<a href="{{ $src | relURL }}">Open {{ $type }} file{{ if eq $type "embed" }} / page{{ end }}</a>{{ end }}</figcaption>
+<figcaption>{{ with .Get "caption" }}{{ $.Page.RenderString . }} · {{ end }}{{ if eq $type "youtube" }}<a href="https://www.youtube.com/watch?v={{ .Get "id" }}">Open video</a>{{ else }}<a href="{{ $src | strings.TrimPrefix "/" | relURL }}">Open {{ $type }} file{{ if eq $type "embed" }} / page{{ end }}</a>{{ end }}</figcaption>
 </figure>

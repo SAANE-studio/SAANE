@@ -39,7 +39,55 @@ ACH describes how frequently an amount of air equivalent to the room's total vol
 
 Together, these measurements help us understand the **quantity of ventilation** taking place. However, they do not directly indicate whether the indoor environment is thermally comfortable, therefore **Adaptive Thermal Comfort** and **Thermal Comfort** statistic is needed to provide a useful approach to evaluate comfort. 
 
-## Natural Ventilation Simulation Workflow
+
+## Simulation Using Autodesk Forma
+
+High level simulation on Thermal Comfort can be delivered by Autodesk Forma Site Design. Forma simulation covers Wind Direction Analysis that can be converted to Pedestrian Wind Comfort analysis in the scope of a building compound.  
+
+Wind analysis **evaluates how air flows around buildings** and how its translated into **pedestrian comfort**. Pedestrian comfort focuses on wind condition _near ground level_ where people walk and use outdoor space.
+
+Common wind phenomena to avoid :
+- **Wind Tunnels** between blocks (channeling / venturi effect)
+- **Downwash** from tall facades (downdraught pushing wind down to the ground)
+- **Turbulence and gusty corners** (at edges and openings)
+- **Shielding** (area behind building shows low wind)
+
+In Wind Analysis, Autodesk forma uses two approach: 
+1. **Rapid Analyses** provide a real-time guidance while designing using AI surrogate model trained from the detailed CFD analysis. It lasted only 1-3s and provide directional and approximate condition.
+2. **Detailed wind analysis** is an accurate CFD based simulation for documentation & deeper investigation. It use full CFD simulation using OpenFOAM that lasted about 40-200min for detailed documentation.
+
+#### Wind Direction Analysis 
+{{< research-image src="/images/research/natural-ventilation/wind-forma-1-ec7487a4d7.jpg" alt="wind-forma-1" size="medium" >}}
+
+{{< research-image src="/images/research/natural-ventilation/wind-forma-2-9f8d9b4ce4.jpg" alt="wind-forma-2" size="medium" >}}
+
+The data we will get from Forma Analyses :  
+- Wind Rose Data : Wind Rose Data illustrates where the wind comes from, how often it blows from that direction, and how strong it is.  
+- Wind Speed Graphs : Shows the probability distribution of wind speed, with the default of median windspeed  
+- Wind Speed Maps : How fast the wind is moving at pedestrian height (1.75m) represent in colors indicating windspeed (M/s)
+
+These data are relevant as design consideration in the following aspects:
+- **High wind exposure** → adjust building orientation and massing to reduce direct wind impact
+- **Wind tunnel effect between buildings** → revise spacing and alignment so wind is not funneled through narrow gaps
+- **Downwash near tall buildings** → reshape tower base, podium, or lower edges to soften wind at ground level
+- **Poor airflow / stagnant air** → increase permeability, openings, or spacing to improve ventilation through the site
+#### Pedestrian Wind Comfort
+{{< research-image src="/images/research/natural-ventilation/wind-forma-3-8c71bb3ed3.jpg" alt="wind-forma-3" size="large" >}}
+
+Pedestrian Wind Comfort Analysis is a comfort map classified by activity types (sitting, standing, strolling, walking, uncomfortable), using default comfort scale (Lawson Benchmark): 
+- Sitting : 1.8 m/s
+- Standing : 3.6 m/s
+- Strolling : 5.3 m/s
+- Walking : 7.6 m/s
+
+This information can be use to determine: 
+- **Uncomfortable pedestrian areas** → place main outdoor activity areas in more protected zones
+- **Turbulent corners and gusty passages** → soften edges, simplify the form, or reduce abrupt openings
+- **Overexposed walkways and public space** → use building placement, trees, screens, or sheltering elements for protection
+- **Outdoor spaces that are too windy or too still** → rebalance enclosure and openness so the space feels more usable for walking, sitting, and gathering
+
+
+## Simulation Workflow Using Ladybug and Honeybee
 
 {{< research-image src="/images/research/natural-ventilation/pasted-image-20261113155334-b8d6e8f6f8.png" alt="Pasted image 20261113155334" size="large" >}}
 
@@ -58,7 +106,8 @@ By comparing the thermal comfort results of both scenarios, the analysis helps d
 
 {{< research-image src="/images/research/natural-ventilation/daylightanalysis-3-4b9a1f0c88.png" alt="DaylightAnalysis 3" size="large" >}}
 #### Result: Operative Temperature
-{{< research-image src="/images/research/natural-ventilation/ventilationsimulation-a99f532955.png" alt="ventilationsimulation" size="large" >}}
+{{< research-image src="/images/research/natural-ventilation/ventilationsimulation-1-ec2e792357.png" alt="ventilationsimulation 1" size="large" >}}
+{{< research-image src="/images/research/natural-ventilation/ventilationsimulation---copy-4-5b500eab2b.png" alt="ventilationsimulation - Copy (4)" size="large" >}}
 
 Operative temperature represents the combined effect of indoor air temperature and heat radiated from surrounding surfaces.
 
@@ -67,7 +116,9 @@ Both scenarios show similar temperature patterns, with higher temperatures occur
 This indicates that **natural ventilation influences indoor temperature, although overheating can still occur in both scenarios**.
 
 #### Result: Thermal Condition
-{{< research-image src="/images/research/natural-ventilation/ventilationsimulation---copy-3-b702ded734.png" alt="ventilationsimulation - Copy (3)" size="large" >}}
+
+{{< research-image src="/images/research/natural-ventilation/ventilationsimulation---copy-3-1-44f9862fbb.png" alt="ventilationsimulation - Copy (3) 1" size="large" >}}
+{{< research-image src="/images/research/natural-ventilation/ventilationsimulation---copy-3---copy-a5cf23235d.png" alt="ventilationsimulation - Copy (3) - Copy" size="large" >}}
 
 The thermal condition chart shows how the room is perceived over time using three simple categories: **hot**, **neutral**, and **cold**.
 

@@ -11,8 +11,10 @@
 {{ if .Store.Get "researchMath" }}<link rel="stylesheet" href="{{ "research/vendor/katex/katex.min.css" | relURL }}">{{ end }}
 {{ if .Store.Get "researchMermaid" }}<script type="module" src="{{ "research/mermaid.js" | relURL }}"></script>{{ end }}
 <meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="{{ "mobile.css" | relURL }}">
 </head>
 <body class="inner-page research-landing-page sr-page">
+{{ partial "mobile-nav.html" . }}
 <a class="sr-skip" href="#research-content">Skip to article</a>
 <div class="saane-shell sr-layout">
 <aside class="saane-left-rail sr-rail" aria-label="SAANE identity">
@@ -20,7 +22,7 @@
 <div class="sr-toc" aria-label="Article contents">{{ .TableOfContents }}</div>
 </aside>
 <main id="research-content" tabindex="-1" class="saane-main sr-main">
-<article class="sr-article">
+<article class="sr-article"><a class="mobile-research-back" hidden href="{{ "research/" | relURL }}">← All Research</a>
 <header class="sr-header">
 <p class="sr-label">{{ .Params.article_type | default "Research" }}</p>
 <h1>{{ .Title }}</h1>

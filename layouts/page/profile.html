@@ -14,8 +14,10 @@
     />
     <link rel="stylesheet" href="{{ "styles.css" | relURL }}" />
     <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="{{ "mobile.css" | relURL }}">
   </head>
   <body class="inner-page profile-page">
+{{ partial "mobile-nav.html" . }}
     <div class="saane-shell">
       <aside class="saane-left-rail" aria-label="SAANE identity">
         <a class="saane-rail-logo" href="{{ "" | relURL }}">

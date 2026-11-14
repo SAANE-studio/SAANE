@@ -9,7 +9,7 @@ cover: /images/research/daylight-analysis/pasted-image-20261112175022-0e57d79d98
 ---
 
 {{< research-image src="/images/research/daylight-analysis/pasted-image-20261112175022-0e57d79d98.png" alt="Pasted image 20261112175022" size="large" >}}
-### Understanding Daylight Analysis
+## Understanding Daylight Analysis
 
 Daylight analysis is used to evaluate the quality of natural light in a building. It measures the amount of daylight in a space. The data then can be used to asses how daylight affects the occupants and energy consumption. 
 
@@ -22,8 +22,54 @@ Practical Use:
 | Hourly Illuminance Analysis      | Analyze variations in natural illuminance at selected sensor locations throughout the year | Hourly illuminance plot (lux) for selected sensors         |
 | Spatial Daylight Performance     | Determain the proportion of interior floor area meeting the daylight availability criteria | Spatial Daylight Autonomy (sDA) percentage                 |
 
- 
-### Simulation using Honeybee
+## Simulation Using Autodesk Forma
+
+High-level daylight analysis, especially in the scope of a building compound, can be done in Autodesk Forma Site Design using Sun Hours and Daylight Potential study features. 
+
+#### Sun Hours
+
+
+{{< research-image src="/images/research/daylight-analysis/daylight-forma-d2640f88a2.jpg" alt="daylight-forma" size="large" >}}
+
+Forma Sun Hours Analysis measures **the number of hours of direct sun exposure** on the ground and on building surfaces for selected date(s) and time interval(s).
+The study simulates solar exposure on selected dates and evaluates _how many hours of direct sun reach building facades, roofs, and outdoor spaces.
+
+**How Does It Affect Design Decision?**
+This analysis helps you understand whether certain parts of the design get too much sun, too little sun, or the right amount depending on the use. It helps with decisions about:
+- orientation,
+- massing,
+- façade treatment,
+- shading,
+- and outdoor comfort.
+
+#### Daylight Potential
+
+
+{{< research-image src="/images/research/daylight-analysis/daylight-potentialforma-1-5ff062a022.jpg" alt="daylight-potentialforma 1" size="large" >}}
+
+Daylight Potential Analysis is expresses as a **Vertical Sky Component (VSC)** **Percentage** that measure the amount of direct skylight reaching the center of a window on a building’s exterior façade, typically from a CIE standard overcast sky. The simulation calculates :
+
+- How much visible sky a facade can see
+- How much diffuse sky light reaches each facade point in obstruction from buildings, terrain, and vegetation
+
+**Key Benchmark**
+
+The simulation measures VSC (illuminance received on a vertical surface) divided by Illuminance on a horizontal surface under unobstructed sky. Based on **BRE,** the benchmark is _(BRE Guide (BR209), Littlefair, 2011):_
+
+- ≥ 27% : Daylight usually satisfactory
+- 15-27% : Larger windows may be needed
+- 5-15% : Difficult to achieve adequate daylight
+- <5% : Adequate daylight often impossible
+
+**How Does It Affect Design Decision?**
+
+- If VSC <15%, consider increase spacing, reduce podium height, adjust building orientation, increase window size
+- if VSC ≥ 27%, conventional window will be sufficient
+- If lower floors show very low VSC, tower spacing maybe inadequate, urban canyon effect may exist
+
+
+
+## Simulation using Honeybee
 {{< research-image src="/images/research/daylight-analysis/pasted-image-20261107185454-071ad3c1cf.png" alt="Pasted image 20261107185454" size="small" >}}
 
 

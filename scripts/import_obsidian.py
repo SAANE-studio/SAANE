@@ -40,12 +40,51 @@ class Importer:
     def asset(self, key, article):
         data=self.path(key).read_bytes()
         ext=Path(key).suffix.lower()
+        if ext in (".htm",".html"):
+            data=self.html_report(data)
         safe=slug(Path(key).stem) or 'asset'
         filename=safe+'-'+hashlib.sha256(data).hexdigest()[:10]+ext
         target=Path('static/images/research')/article/filename
         self.pending[target]=data
         self.report.append('asset: '+key+' -> '+str(target))
         return '/'+str(target.relative_to('static')).replace('\\','/')
+
+    def html_report(self, data):
+        """Bundle explicitly approved local report libraries; never modify source files."""
+        text=data.decode('utf-8-sig')
+        allowed={Path(p).resolve() for p in self.m.get('html_resource_files',[])}
+        def dependency(url):
+            path=Path(urllib.parse.unquote(url.removeprefix('file:///'))).resolve()
+            if path not in allowed:
+                raise ImportFailure('HTML report dependency is not approved: '+url)
+            if not path.is_file():raise ImportFailure('Missing HTML report dependency: '+url)
+            return path.read_text(encoding='utf-8-sig')
+        def script(m):
+            code=dependency(html.unescape(m[2]))
+            if re.search(r'</script',code,re.I):raise ImportFailure('Unsupported script terminator in report dependency')
+            return '<script>'+code+'</script>'
+        text=re.sub(r'<script\b[^>]*\bsrc=(["\'])(.*?)\1[^>]*>\s*</script\s*>',script,text,flags=re.I)
+        def stylesheet(m):
+            tag=m[0]
+            link=re.search(r'\bhref=(["\'])(.*?)\1',tag,re.I)
+            if not link or not re.search(r'\brel=["\']stylesheet["\']',tag,re.I):return tag
+            css=dependency(html.unescape(link[2]))
+            # OpenStudio ships Bootstrap without the optional Glyphicon font files.
+            # Remove that unused font definition only when the report uses no glyphicons.
+            if 'glyphicons-halflings' in css and not re.search(r'class=["\'][^"\']*\bglyphicon',text,re.I):
+                css=re.sub(r'@font-face\s*\{[^}]*glyphicons-halflings[^}]*\}','',css,flags=re.I)
+            if re.search(r'url\s*\((?!\s*["\']?data:)',css,re.I) or '@import' in css:
+                raise ImportFailure('HTML report stylesheet has unresolved nested resources: '+link[2])
+            return '<style>'+css+'</style>'
+        text=re.sub(r'<link\b[^>]*>',stylesheet,text,flags=re.I)
+        if re.search(r'(?:src|href)=["\'](?:[A-Za-z]:[/\\]|file:)',text,re.I):
+            raise ImportFailure('HTML report still refers to local computer files')
+        # Same CSP applies to the full-page fallback; the article iframe is also sandboxed.
+        csp='<meta http-equiv="Content-Security-Policy" content="sandbox allow-scripts; default-src \'none\'; script-src \'unsafe-inline\'; style-src \'unsafe-inline\'; img-src data:; font-src data:; base-uri \'none\'; form-action \'none\'">'
+        text=re.sub(r'<head\b[^>]*>',lambda m:m[0]+csp,text,count=1,flags=re.I)
+        self.report.append('HTML report: approved libraries inlined; local paths removed; sandbox enabled')
+        return text.encode('utf-8')
+
     def fragment(self,text,fragment):
         if not fragment:return text
         if fragment.startswith('^'):
@@ -93,7 +132,7 @@ class Importer:
                 if width:
                     w=int(width.split('x')[0]);size='small' if w<=360 else 'medium' if w<=560 else 'large' if w<=740 else 'wide'
                 return '{{< research-image src="'+src+'" alt="'+html.escape(label,quote=True)+'" size="'+size+'" >}}'
-            kind={'.mp4':'video','.webm':'video','.ogv':'video','.mp3':'audio','.wav':'audio','.ogg':'audio','.m4a':'audio','.pdf':'pdf'}.get(ext)
+            kind={'.mp4':'video','.webm':'video','.ogv':'video','.mp3':'audio','.wav':'audio','.ogg':'audio','.m4a':'audio','.pdf':'pdf','.htm':'html','.html':'html'}.get(ext)
             if not kind:raise ImportFailure('Unsupported embed format: '+src)
             return '{{< research-media type="'+kind+'" src="'+src+'" title="'+html.escape(label,quote=True)+'" >}}'
         def wiki(m):
